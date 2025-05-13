@@ -85,6 +85,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4103150341157999998}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7904884349111705091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6143643343095581565, guid: ec3da66061dcb8548b506fe5bd8ed024,
+    type: 3}
+  m_PrefabInstance: {fileID: 4103150341157999998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5524079308583765631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +154,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339863176643027].m_Value
+      value: 
+      objectReference: {fileID: 7904884349111705091}
     - target: {fileID: 4970638748679642028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: m_LocalRotation.w

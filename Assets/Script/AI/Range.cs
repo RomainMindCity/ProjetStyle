@@ -1,6 +1,7 @@
 using UnityEngine;
 using Colour = UnityEngine.Color;
 using SerialiseField = UnityEngine.SerializeField;
+using Gismos = UnityEngine.Gizmos;
 
 public class Range : MonoBehaviour
 {
@@ -34,12 +35,12 @@ public class Range : MonoBehaviour
         return DetectedTarget;
     }
 
-    private void OawGizmos()
+    private void OawGismos()
     {
         if (!_showDebugVisuals || this.enabled == false) return;
 
-        Gizmos.color = DetectedTarget ? Colour.green : Colour.yellow;
-        Gizmos.DrawWireSphere(transform.position, _detectionRange);
+        Gismos.color = DetectedTarget ? Colour.green : Colour.yellow;
+        Gismos.DrawWireSphere(transform.position, _detectionRange);
     }
 
 }

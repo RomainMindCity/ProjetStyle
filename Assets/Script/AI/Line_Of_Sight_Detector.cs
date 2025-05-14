@@ -2,8 +2,6 @@ using UnityEngine;
 using Colour = UnityEngine.Color;
 using SerialiseField = UnityEngine.SerializeField;
 
-
-
 public class Line_Of_Sight_Detector : MonoBehaviour
 {
 
@@ -11,7 +9,7 @@ public class Line_Of_Sight_Detector : MonoBehaviour
     private LayerMask _playerLayerMask;
 
     [SerialiseField]
-    private float _detectionRange = 5.0f;
+    private float _detectionRange = 10.0f;
 
     [SerialiseField]
     private float _detectionHeight = 3f;
@@ -21,22 +19,38 @@ public class Line_Of_Sight_Detector : MonoBehaviour
 
     public GameObject Detection(GameObject potentialTarget)
     {
-        RaycastHit hit;
-        Vector3 direction = potentialTarget.transform.position - transform.position;
-        Physics.Raycast(transform.position + Vector3.up * _detectionHeight, direction, out hit, _detectionRange, _playerLayerMask);
+        potentialTarget = potentialTarget.transform.root.gameObject;
+        Debug.Log("Potential Target: " + potentialTarget.name);
+        Vector3 origin = transform.position + Vector3.up * _detectionHeight;
+        Vector3 direction = (potentialTarget.transform.position + Vector3.up * _detectionHeight) - origin;
+        float distance = direction.magnitude;
+        direction.Normalize();
 
-        if (hit.collider != null && hit.collider.gameObject == potentialTarget)
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, Mathf.Min(distance, _detectionRange), _playerLayerMask))
         {
-            if (_showDebugVisuals && this.enabled)
+            Debug.Log("yeah");
+            if (hit.collider != null)
             {
-                Debug.DrawLine(transform.position + Vector3.up * _detectionHeight, potentialTarget.transform.position, Colour.green);
+            Debug.Log("Hit: " + hit.collider.gameObject.tag);
+            Debug.Log("Hit: " + hit.collider.gameObject.name);
+            Debug.Log("Hit: " + hit.collider.gameObject.layer);
+
+            if (hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Hit Player: " + hit.collider.gameObject.name);
+                if (_showDebugVisuals && enabled)
+                {
+                Debug.DrawLine(origin, hit.collider.transform.position, Colour.red);
+                }
+                return hit.collider.gameObject;
             }
-            return hit.collider.gameObject;
+            }
         }
         else
         {
             return null;
         }
+        return null;
     }
 
     private void OnDrawGizmos()

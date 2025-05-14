@@ -13,13 +13,17 @@ MonoBehaviour:
   m_Name: AI_Graph Blackboard
   m_EditorClassIdentifier: 
   AssetID:
-    m_Value0: 0
-    m_Value1: 0
+    m_Value0: 1499709778507472656
+    m_Value1: 15809111777453357481
   m_Variables:
   - rid: 2327339863176642756
   - rid: 2327339863176642996
   - rid: 2327339863176642813
-  m_VersionTimestamp: 638827316632856675
+  - rid: 2327339885492437089
+  - rid: 2327339885492437324
+  - rid: 2327339885492437349
+  - rid: 2327339886674968909
+  m_VersionTimestamp: 638828200920106765
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: 5919940505198577374}
@@ -60,6 +64,50 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 2327339885492437089
+      type: {class: 'TypedVariableModel`1[[Range, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework,
+        asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 8497846343597196932
+          m_Value1: 12351419584000034558
+        Name: New Range
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437324
+      type: {class: 'TypedVariableModel`1[[Line_Of_Sight_Detector, Assembly-CSharp]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 2473903619789498378
+          m_Value1: 9992333622255411180
+        Name: New Line Of Sight Detector
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437349
+      type: {class: 'TypedVariableModel`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior.GraphFramework,
+        asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 7976146784203210990
+          m_Value1: 10667708719072653562
+        Name: TargetDetected
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: 0
+    - rid: 2327339886674968909
+      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 2165155837820511678
+          m_Value1: 7102834811804067830
+        Name: Patrol Points
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,9 +126,23 @@ MonoBehaviour:
   - rid: 2327339863176642757
   - rid: 2327339863176642767
   - rid: 2327339863176642874
-  - rid: 2327339863176642910
   - rid: 2327339863176642939
-  m_VersionTimestamp: 638827316658460049
+  - rid: 2327339885492437059
+  - rid: 2327339885492437130
+  - rid: 2327339885492437157
+  - rid: 2327339885492437374
+  - rid: 2327339885492437388
+  - rid: 2327339885492437457
+  - rid: 2327339886674968578
+  - rid: 2327339886674968579
+  - rid: 2327339886674968580
+  - rid: 2327339886674968653
+  - rid: 2327339886674968702
+  - rid: 2327339886674968703
+  - rid: 2327339886674968704
+  - rid: 2327339886674968789
+  - rid: 2327339886674968945
+  m_VersionTimestamp: 638828200953977650
   m_DebugInfo: {fileID: 1368184544290372473}
   m_RuntimeGraph: {fileID: 111823710607634547}
   AssetID:
@@ -162,13 +224,6 @@ MonoBehaviour:
           PublicKeyToken=b77a5c561934e089
       Tooltip: 
     NamedChildren: []
-  - Name: Sequence
-    Story: 
-    RuntimeTypeID:
-      m_Value0: 10181448252506100447
-      m_Value1: 8737116843063128493
-    Variables: []
-    NamedChildren: []
   - Name: Wait (Seconds)
     Story: Wait for [SecondsToWait] seconds
     RuntimeTypeID:
@@ -180,6 +235,120 @@ MonoBehaviour:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
       Tooltip: 
+    NamedChildren: []
+  - Name: Range
+    Story: 'Update [range] and assign [Target]'
+    RuntimeTypeID:
+      m_Value0: 10736401732262612176
+      m_Value1: 291191623642010321
+    Variables:
+    - Name: Range
+      Type:
+        m_SerializableType: Range, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+      Tooltip: 
+    - Name: Target
+      Type:
+        m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Set Variable Value
+    Story: 'Set [Variable] value to [Value]'
+    RuntimeTypeID:
+      m_Value0: 5494721648866555964
+      m_Value1: 18024545711220129068
+    Variables:
+    - Name: Variable
+      Type:
+        m_SerializableType: Unity.Behavior.BlackboardVariable, Unity.Behavior, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Value
+      Type:
+        m_SerializableType: Unity.Behavior.BlackboardVariable, Unity.Behavior, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    NamedChildren: []
+  - Name: Conditional Branch
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 12334964803190848789
+      m_Value1: 14608808926743427008
+    Variables: []
+    NamedChildren:
+    - True
+    - False
+  - Name: Try In Order
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 11477120919463386923
+      m_Value1: 7730102824742023565
+    Variables: []
+    NamedChildren: []
+  - Name: Patrol
+    Story: '[Agent] patrols along [Waypoints]'
+    RuntimeTypeID:
+      m_Value0: 14152437374081355248
+      m_Value1: 10648518091965011058
+    Variables:
+    - Name: Agent
+      Type:
+        m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      Tooltip: 
+    - Name: Waypoints
+      Type:
+        m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+          UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: Speed
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: WaypointWaitTime
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: DistanceThreshold
+      Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: AnimatorSpeedParam
+      Type:
+        m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    - Name: PreserveLatestPatrolPoint
+      Type:
+        m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      Tooltip: 
+    NamedChildren: []
+  - Name: Abort
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 11694760734451091187
+      m_Value1: 13156989698943900053
+    Variables: []
+    NamedChildren: []
+  - Name: Restart
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 13639978763537614925
+      m_Value1: 3904329925062786712
+    Variables: []
+    NamedChildren: []
+  - Name: Sequence
+    Story: 
+    RuntimeTypeID:
+      m_Value0: 10181448252506100447
+      m_Value1: 8737116843063128493
+    Variables: []
     NamedChildren: []
   m_Blackboards: []
   m_MainBlackboardAuthoringAsset: {fileID: -5849412384719755754}
@@ -219,15 +388,16 @@ MonoBehaviour:
         m_NodeModel:
           rid: 2327339863176642757
         m_Connections:
-        - rid: 2327339863176642911
+        - rid: 2327339886674968946
     - rid: 2327339863176642767
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -360.30038, y: 196.6}
+        Position: {x: 39.69961, y: 110.999985}
         ID:
           m_Value0: 949922230348144796
           m_Value1: 17392931603657237560
-        Parents: []
+        Parents:
+        - rid: 2327339885492437130
         PortModels:
         - rid: 2327339863176642768
         - rid: 2327339863176642769
@@ -253,8 +423,7 @@ MonoBehaviour:
         m_IsFloating: 0
         m_NodeModel:
           rid: 2327339863176642767
-        m_Connections:
-        - rid: 2327339863176642912
+        m_Connections: []
     - rid: 2327339863176642769
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -430,11 +599,12 @@ MonoBehaviour:
     - rid: 2327339863176642874
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: -0.6999655, y: 205.40004}
+        Position: {x: 118.50003, y: 181.40004}
         ID:
           m_Value0: 4485216116005706853
           m_Value1: 6509190925489206369
-        Parents: []
+        Parents:
+        - rid: 2327339885492437130
         PortModels:
         - rid: 2327339863176642875
         - rid: 2327339863176642876
@@ -456,8 +626,7 @@ MonoBehaviour:
         m_IsFloating: 0
         m_NodeModel:
           rid: 2327339863176642874
-        m_Connections:
-        - rid: 2327339863176642912
+        m_Connections: []
     - rid: 2327339863176642876
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -527,54 +696,15 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 1
-    - rid: 2327339863176642910
-      type: {class: CompositeNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
-      data:
-        Position: {x: 0, y: 105}
-        ID:
-          m_Value0: 11125303395347216096
-          m_Value1: 1000413512427365904
-        Parents: []
-        PortModels:
-        - rid: 2327339863176642911
-        - rid: 2327339863176642912
-        NodeType:
-          m_SerializableType: Unity.Behavior.SequenceComposite, Unity.Behavior, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-        NodeTypeID:
-          m_Value0: 10181448252506100447
-          m_Value1: 8737116843063128493
-        m_FieldValues: []
-    - rid: 2327339863176642911
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: InputPort
-        m_PortDataFlowType: 0
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 2327339863176642910
-        m_Connections:
-        - rid: 2327339863176642758
-    - rid: 2327339863176642912
-      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
-      data:
-        m_Name: OutputPort
-        m_PortDataFlowType: 1
-        m_IsFloating: 0
-        m_NodeModel:
-          rid: 2327339863176642910
-        m_Connections:
-        - rid: 2327339863176642768
-        - rid: 2327339863176642875
-        - rid: 2327339863176642940
     - rid: 2327339863176642939
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
-        Position: {x: 387.60098, y: 193.4}
+        Position: {x: 132.40096, y: 232.60002}
         ID:
           m_Value0: 18102898907277908884
           m_Value1: 4016079911717333798
-        Parents: []
+        Parents:
+        - rid: 2327339885492437130
         PortModels:
         - rid: 2327339863176642940
         - rid: 2327339863176642941
@@ -594,8 +724,7 @@ MonoBehaviour:
         m_IsFloating: 0
         m_NodeModel:
           rid: 2327339863176642939
-        m_Connections:
-        - rid: 2327339863176642912
+        m_Connections: []
     - rid: 2327339863176642941
       type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
       data:
@@ -636,6 +765,1148 @@ MonoBehaviour:
         IsExposed: 1
         m_IsShared: 0
         m_Value: {fileID: 0}
+    - rid: 2327339885492437059
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -901.06354, y: 222.89735}
+        ID:
+          m_Value0: 3976135155221275849
+          m_Value1: 11136034522979497414
+        Parents: []
+        PortModels:
+        - rid: 2327339885492437060
+        - rid: 2327339885492437061
+        NodeType:
+          m_SerializableType: RangeAction, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 10736401732262612176
+          m_Value1: 291191623642010321
+        m_FieldValues:
+        - rid: 2327339885492437062
+        - rid: 2327339885492437063
+    - rid: 2327339885492437060
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437059
+        m_Connections:
+        - rid: 2327339886674968655
+    - rid: 2327339885492437061
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437059
+        m_Connections:
+        - rid: 2327339886674968581
+    - rid: 2327339885492437062
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Range
+        Type:
+          m_SerializableType: Range, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+        LocalValue:
+          rid: 2327339885492437064
+        LinkedVariable:
+          rid: 2327339885492437114
+    - rid: 2327339885492437063
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Target
+        Type:
+          m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2327339885492437065
+        LinkedVariable:
+          rid: 2327339885492437066
+    - rid: 2327339885492437064
+      type: {class: 'BlackboardVariable`1[[Range, Assembly-CSharp]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437065
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437066
+      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1550672300238801415
+          m_Value1: 10815481029468852674
+        Name: Target
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+          type: 3}
+    - rid: 2327339885492437114
+      type: {class: 'TypedVariableModel`1[[Range, Assembly-CSharp]]', ns: Unity.Behavior.GraphFramework,
+        asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 8497846343597196932
+          m_Value1: 12351419584000034558
+        Name: New Range
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437130
+      type: {class: SequenceNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -116.5, y: 415}
+        ID:
+          m_Value0: 2997451962671558978
+          m_Value1: 6204427745553999124
+        Parents: []
+        PortModels:
+        - rid: 2327339885492437131
+        - rid: 2327339885492437132
+        Nodes:
+        - rid: 2327339863176642767
+        - rid: 2327339863176642874
+        - rid: 2327339863176642939
+    - rid: 2327339885492437131
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437130
+        m_Connections:
+        - rid: 2327339886674968709
+    - rid: 2327339885492437132
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437130
+        m_Connections: []
+    - rid: 2327339885492437157
+      type: {class: StartNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -774.56366, y: 27.897312}
+        ID:
+          m_Value0: 3682718705904724101
+          m_Value1: 7886807097309090360
+        Parents: []
+        PortModels:
+        - rid: 2327339885492437158
+        NodeType:
+          m_SerializableType: Unity.Behavior.Start, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 3335272451348827663
+          m_Value1: 11549843281177505721
+        m_FieldValues: []
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 2327339885492437158
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437157
+        m_Connections:
+        - rid: 2327339886674968654
+    - rid: 2327339885492437374
+      type: {class: SetValueNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -1027.5635, y: 512.8972}
+        ID:
+          m_Value0: 4056084194188324716
+          m_Value1: 11213909833089676029
+        Parents: []
+        PortModels:
+        - rid: 2327339885492437375
+        - rid: 2327339885492437376
+        NodeType:
+          m_SerializableType: Unity.Behavior.SetVariableValueAction, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 5494721648866555964
+          m_Value1: 18024545711220129068
+        m_FieldValues:
+        - rid: 2327339885492437383
+        - rid: 2327339885492437384
+    - rid: 2327339885492437375
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437374
+        m_Connections:
+        - rid: 2327339886674968585
+    - rid: 2327339885492437376
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437374
+        m_Connections: []
+    - rid: 2327339885492437383
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Variable
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339885492437385
+        LinkedVariable:
+          rid: 2327339885492437386
+    - rid: 2327339885492437384
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Value
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339885492437387
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339885492437385
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339885492437386
+      type: {class: 'TypedVariableModel`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior.GraphFramework,
+        asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 7976146784203210990
+          m_Value1: 10667708719072653562
+        Name: TargetDetected
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: 0
+    - rid: 2327339885492437387
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339885492437388
+      type: {class: SetValueNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -774.7733, y: 513.72675}
+        ID:
+          m_Value0: 3116324525848678634
+          m_Value1: 14078896035811142310
+        Parents: []
+        PortModels:
+        - rid: 2327339885492437389
+        - rid: 2327339885492437390
+        NodeType:
+          m_SerializableType: Unity.Behavior.SetVariableValueAction, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 5494721648866555964
+          m_Value1: 18024545711220129068
+        m_FieldValues:
+        - rid: 2327339885492437391
+        - rid: 2327339885492437392
+    - rid: 2327339885492437389
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437388
+        m_Connections:
+        - rid: 2327339886674968587
+    - rid: 2327339885492437390
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437388
+        m_Connections: []
+    - rid: 2327339885492437391
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Variable
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339885492437393
+        LinkedVariable:
+          rid: 2327339885492437386
+    - rid: 2327339885492437392
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Value
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339885492437394
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339885492437393
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339885492437394
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339885492437457
+      type: {class: SetValueNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -521.5638, y: 222.89735}
+        ID:
+          m_Value0: 7914084658685460713
+          m_Value1: 8712332735317603052
+        Parents: []
+        PortModels:
+        - rid: 2327339885492437458
+        - rid: 2327339885492437459
+        NodeType:
+          m_SerializableType: Unity.Behavior.SetVariableValueAction, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 5494721648866555964
+          m_Value1: 18024545711220129068
+        m_FieldValues:
+        - rid: 2327339885492437460
+        - rid: 2327339885492437461
+    - rid: 2327339885492437458
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437457
+        m_Connections:
+        - rid: 2327339886674968655
+    - rid: 2327339885492437459
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339885492437457
+        m_Connections: []
+    - rid: 2327339885492437460
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Variable
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339885492437462
+        LinkedVariable:
+          rid: 2327339885492437386
+    - rid: 2327339885492437461
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Value
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339885492437463
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339885492437462
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339885492437463
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674968578
+      type: {class: BranchingConditionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -901.06354, y: 312.89728}
+        ID:
+          m_Value0: 4920458125412897855
+          m_Value1: 7941631585726702886
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968581
+        - rid: 2327339886674968582
+        - rid: 2327339886674968583
+        NodeType:
+          m_SerializableType: Unity.Behavior.BranchingConditionComposite, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 12334964803190848789
+          m_Value1: 14608808926743427008
+        m_FieldValues: []
+        <ConditionModels>k__BackingField:
+        - ConditionType:
+            m_SerializableType: LignOfSightCheckCondition, Assembly-CSharp, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+          ConditionTypeID:
+            m_Value0: 10912033763851340219
+            m_Value1: 2934545149274461019
+          NodeModel:
+            rid: 2327339886674968578
+          m_FieldValues:
+          - rid: 2327339886674968622
+          - rid: 2327339886674968623
+          OperatorFieldModel:
+            rid: -2
+        <RequiresAllConditionsTrue>k__BackingField: 0
+        <ShouldTruncateNodeUI>k__BackingField: 0
+    - rid: 2327339886674968579
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -1027.5635, y: 422.89728}
+        ID:
+          m_Value0: 2074040376050619610
+          m_Value1: 17344361340290295950
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968584
+        - rid: 2327339886674968585
+        ParentNodeID:
+          m_Value0: 4920458125412897855
+          m_Value1: 7941631585726702886
+        PortName: True
+    - rid: 2327339886674968580
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -774.56366, y: 422.89728}
+        ID:
+          m_Value0: 268528684934738176
+          m_Value1: 15919867446756111846
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968586
+        - rid: 2327339886674968587
+        ParentNodeID:
+          m_Value0: 4920458125412897855
+          m_Value1: 7941631585726702886
+        PortName: False
+    - rid: 2327339886674968581
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968578
+        m_Connections:
+        - rid: 2327339885492437061
+    - rid: 2327339886674968582
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: True
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968578
+        m_Connections:
+        - rid: 2327339886674968584
+    - rid: 2327339886674968583
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: False
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968578
+        m_Connections:
+        - rid: 2327339886674968586
+    - rid: 2327339886674968584
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968579
+        m_Connections:
+        - rid: 2327339886674968582
+    - rid: 2327339886674968585
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968579
+        m_Connections:
+        - rid: 2327339885492437375
+    - rid: 2327339886674968586
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968580
+        m_Connections:
+        - rid: 2327339886674968583
+    - rid: 2327339886674968587
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968580
+        m_Connections:
+        - rid: 2327339885492437389
+    - rid: 2327339886674968622
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Target
+        Type:
+          m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2327339886674968624
+        LinkedVariable:
+          rid: 2327339886674968626
+    - rid: 2327339886674968623
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: LineofSightDetector
+        Type:
+          m_SerializableType: Line_Of_Sight_Detector, Assembly-CSharp, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2327339886674968625
+        LinkedVariable:
+          rid: 2327339886674968627
+    - rid: 2327339886674968624
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2327339886674968625
+      type: {class: 'BlackboardVariable`1[[Line_Of_Sight_Detector, Assembly-CSharp]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2327339886674968626
+      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1550672300238801415
+          m_Value1: 10815481029468852674
+        Name: Target
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+          type: 3}
+    - rid: 2327339886674968627
+      type: {class: 'TypedVariableModel`1[[Line_Of_Sight_Detector, Assembly-CSharp]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 2473903619789498378
+          m_Value1: 9992333622255411180
+        Name: New Line Of Sight Detector
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2327339886674968653
+      type: {class: CompositeNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: -774.56366, y: 132.89732}
+        ID:
+          m_Value0: 503817024595151469
+          m_Value1: 9554897087434781179
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968654
+        - rid: 2327339886674968655
+        NodeType:
+          m_SerializableType: Unity.Behavior.SelectorComposite, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 11477120919463386923
+          m_Value1: 7730102824742023565
+        m_FieldValues: []
+    - rid: 2327339886674968654
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968653
+        m_Connections:
+        - rid: 2327339885492437158
+    - rid: 2327339886674968655
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968653
+        m_Connections:
+        - rid: 2327339885492437060
+        - rid: 2327339885492437458
+    - rid: 2327339886674968668
+      type: {class: 'TypedVariableModel`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior.GraphFramework,
+        asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 7976146784203210990
+          m_Value1: 10667708719072653562
+        Name: TargetDetected
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: 0
+    - rid: 2327339886674968702
+      type: {class: BranchingConditionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 0, y: 215}
+        ID:
+          m_Value0: 7125316836474850922
+          m_Value1: 1525682673025227513
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968705
+        - rid: 2327339886674968706
+        - rid: 2327339886674968707
+        NodeType:
+          m_SerializableType: Unity.Behavior.BranchingConditionComposite, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 12334964803190848789
+          m_Value1: 14608808926743427008
+        m_FieldValues: []
+        <ConditionModels>k__BackingField:
+        - ConditionType:
+            m_SerializableType: Unity.Behavior.VariableComparisonCondition, Unity.Behavior,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+          ConditionTypeID:
+            m_Value0: 4706153636540939941
+            m_Value1: 1154942553909992356
+          NodeModel:
+            rid: 2327339886674968702
+          m_FieldValues:
+          - rid: 2327339886674968735
+          - rid: 2327339886674968736
+          - rid: 2327339886674968743
+          OperatorFieldModel:
+            rid: 2327339886674968736
+        <RequiresAllConditionsTrue>k__BackingField: 0
+        <ShouldTruncateNodeUI>k__BackingField: 0
+    - rid: 2327339886674968703
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: -116.5, y: 325}
+        ID:
+          m_Value0: 837015674928345528
+          m_Value1: 13706343271620094655
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968708
+        - rid: 2327339886674968709
+        ParentNodeID:
+          m_Value0: 7125316836474850922
+          m_Value1: 1525682673025227513
+        PortName: True
+    - rid: 2327339886674968704
+      type: {class: FloatingPortNodeModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        Position: {x: 244.5, y: 325}
+        ID:
+          m_Value0: 6714933327289722775
+          m_Value1: 2676162621358680994
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968710
+        - rid: 2327339886674968711
+        ParentNodeID:
+          m_Value0: 7125316836474850922
+          m_Value1: 1525682673025227513
+        PortName: False
+    - rid: 2327339886674968705
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968702
+        m_Connections:
+        - rid: 2327339886674968947
+    - rid: 2327339886674968706
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: True
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968702
+        m_Connections:
+        - rid: 2327339886674968708
+    - rid: 2327339886674968707
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: False
+        m_PortDataFlowType: 1
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968702
+        m_Connections:
+        - rid: 2327339886674968710
+    - rid: 2327339886674968708
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968703
+        m_Connections:
+        - rid: 2327339886674968706
+    - rid: 2327339886674968709
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968703
+        m_Connections:
+        - rid: 2327339885492437131
+    - rid: 2327339886674968710
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 1
+        m_NodeModel:
+          rid: 2327339886674968704
+        m_Connections:
+        - rid: 2327339886674968707
+    - rid: 2327339886674968711
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968704
+        m_Connections:
+        - rid: 2327339886674968790
+    - rid: 2327339886674968735
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Variable
+        Type:
+          m_SerializableType: System.Object, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968744
+        LinkedVariable:
+          rid: 2327339886674968668
+    - rid: 2327339886674968736
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Operator
+        Type:
+          m_SerializableType: Unity.Behavior.ConditionOperator, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2327339886674968739
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968739
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.ConditionOperator, Unity.Behavior]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674968743
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: ComparisonValue
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968745
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968744
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674968745
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674968789
+      type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 244.5, y: 415}
+        ID:
+          m_Value0: 3432067869489296409
+          m_Value1: 8763166491538674310
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968790
+        - rid: 2327339886674968791
+        NodeType:
+          m_SerializableType: Unity.Behavior.PatrolAction, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 14152437374081355248
+          m_Value1: 10648518091965011058
+        m_FieldValues:
+        - rid: 2327339886674968792
+        - rid: 2327339886674968793
+        - rid: 2327339886674968794
+        - rid: 2327339886674968795
+        - rid: 2327339886674968796
+        - rid: 2327339886674968797
+        - rid: 2327339886674968798
+    - rid: 2327339886674968790
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968789
+        m_Connections:
+        - rid: 2327339886674968711
+    - rid: 2327339886674968791
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968789
+        m_Connections: []
+    - rid: 2327339886674968792
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Agent
+        Type:
+          m_SerializableType: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        LocalValue:
+          rid: 2327339886674968799
+        LinkedVariable:
+          rid: 2327339886674968806
+    - rid: 2327339886674968793
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Waypoints
+        Type:
+          m_SerializableType: System.Collections.Generic.List`1[[UnityEngine.GameObject,
+            UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+            mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968800
+        LinkedVariable:
+          rid: 2327339886674968910
+    - rid: 2327339886674968794
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Speed
+        Type:
+          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968801
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968795
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: WaypointWaitTime
+        Type:
+          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968802
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968796
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: DistanceThreshold
+        Type:
+          m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968803
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968797
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: AnimatorSpeedParam
+        Type:
+          m_SerializableType: System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968804
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968798
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: PreserveLatestPatrolPoint
+        Type:
+          m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968805
+        LinkedVariable:
+          rid: -2
+    - rid: 2327339886674968799
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: {fileID: 0}
+    - rid: 2327339886674968800
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: []
+    - rid: 2327339886674968801
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 4
+    - rid: 2327339886674968802
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674968803
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0.2
+    - rid: 2327339886674968804
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: WalkSpeed
+    - rid: 2327339886674968805
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674968806
+      type: {class: 'TypedVariableModel`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: {fileID: 0}
+    - rid: 2327339886674968910
+      type: {class: 'TypedVariableModel`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]',
+        ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        ID:
+          m_Value0: 2165155837820511678
+          m_Value1: 7102834811804067830
+        Name: Patrol Points
+        IsExposed: 1
+        m_IsShared: 0
+        m_Value: []
+    - rid: 2327339886674968945
+      type: {class: AbortNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        Position: {x: 0, y: 105}
+        ID:
+          m_Value0: 2012036140348315656
+          m_Value1: 15722679284739198341
+        Parents: []
+        PortModels:
+        - rid: 2327339886674968946
+        - rid: 2327339886674968947
+        NodeType:
+          m_SerializableType: Unity.Behavior.AbortModifier, Unity.Behavior, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+        NodeTypeID:
+          m_Value0: 11694760734451091187
+          m_Value1: 13156989698943900053
+        m_FieldValues: []
+        m_ModelAbortType: 0
+        <ConditionModels>k__BackingField:
+        - rid: 2327339886674968993
+        <RequiresAllConditionsTrue>k__BackingField: 0
+        <ShouldTruncateNodeUI>k__BackingField: 0
+    - rid: 2327339886674968946
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: InputPort
+        m_PortDataFlowType: 0
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968945
+        m_Connections:
+        - rid: 2327339863176642758
+    - rid: 2327339886674968947
+      type: {class: PortModel, ns: Unity.Behavior.GraphFramework, asm: Unity.Behavior.GraphFramework}
+      data:
+        m_Name: OutputPort
+        m_PortDataFlowType: 1
+        m_IsFloating: 0
+        m_NodeModel:
+          rid: 2327339886674968945
+        m_Connections:
+        - rid: 2327339886674968705
+    - rid: 2327339886674968993
+      type: {class: ConditionModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        ConditionType:
+          m_SerializableType: Unity.Behavior.VariableValueChangedCondition, Unity.Behavior,
+            Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        ConditionTypeID:
+          m_Value0: 13470419595383481473
+          m_Value1: 11043599123792193923
+        NodeModel:
+          rid: 2327339886674968945
+        m_FieldValues:
+        - rid: 2327339886674968994
+        OperatorFieldModel:
+          rid: -2
+    - rid: 2327339886674968994
+      type: {class: BehaviorGraphNodeModel/FieldModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
+      data:
+        FieldName: Variable
+        Type:
+          m_SerializableType: System.Object, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        LocalValue:
+          rid: 2327339886674968995
+        LinkedVariable:
+          rid: 2327339886674968668
+    - rid: 2327339886674968995
+      type: {class: 'BlackboardVariable`1[[System.Object, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
 --- !u!114 &111823710607634547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,16 +1920,16 @@ MonoBehaviour:
   m_Name: AI_Graph
   m_EditorClassIdentifier: 
   Graphs:
-  - rid: 2327339863176643062
+  - rid: 2327339886674969284
   RootGraph:
-    rid: 2327339863176643062
+    rid: 2327339886674969284
   m_DebugInfo: {fileID: 1368184544290372473}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 2327339863176642841
+    - rid: 2327339886674969229
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
         asm: Unity.Behavior}
       data:
@@ -667,7 +1938,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 4
-    - rid: 2327339863176642842
+    - rid: 2327339886674969230
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
         asm: Unity.Behavior}
       data:
@@ -676,7 +1947,16 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 1
-    - rid: 2327339863176642843
+    - rid: 2327339886674969231
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0.2
+    - rid: 2327339886674969232
       type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior,
         asm: Unity.Behavior}
       data:
@@ -685,34 +1965,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: WalkSpeed
-    - rid: 2327339863176642844
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
-        asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 4
-    - rid: 2327339863176642845
-      type: {class: 'BlackboardVariable`1[[Unity.Behavior.NavigateToTargetAction/TargetPositionMode, Unity.Behavior]]',
-        ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: 0
-    - rid: 2327339863176642924
-      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior,
-        asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 0
-          m_Value1: 0
-        Name: 
-        m_Value: Attack
-    - rid: 2327339863176642926
+    - rid: 2327339886674969233
       type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
         asm: Unity.Behavior}
       data:
@@ -721,7 +1974,88 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 1
-    - rid: 2327339863176642969
+    - rid: 2327339886674969234
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.ConditionOperator, Unity.Behavior]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674969235
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674969239
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 4
+    - rid: 2327339886674969240
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674969241
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: WalkSpeed
+    - rid: 2327339886674969242
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 4
+    - rid: 2327339886674969243
+      type: {class: 'BlackboardVariable`1[[Unity.Behavior.NavigateToTargetAction/TargetPositionMode, Unity.Behavior]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674969244
+      type: {class: 'BlackboardVariable`1[[System.String, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: Attack
+    - rid: 2327339886674969246
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674969247
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior,
         asm: Unity.Behavior}
       data:
@@ -730,7 +2064,34 @@ MonoBehaviour:
           m_Value1: 0
         Name: 
         m_Value: 2
-    - rid: 2327339863176643062
+    - rid: 2327339886674969248
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 1
+    - rid: 2327339886674969249
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674969276
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 0
+          m_Value1: 0
+        Name: 
+        m_Value: 0
+    - rid: 2327339886674969284
       type: {class: BehaviorGraphModule, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         AuthoringAssetID:
@@ -738,119 +2099,112 @@ MonoBehaviour:
           m_Value1: 15809111777453357481
         m_DebugInfo: {fileID: 0}
         Root:
-          rid: 2327339863176643063
+          rid: 2327339886674969285
         BlackboardReference:
-          rid: 2327339863176643064
+          rid: 2327339886674969286
         BlackboardGroupReferences: []
         m_ActiveNodes: []
         m_NodesToTick: []
         m_NodesToEnd:
-          rid: 2327339863176643065
+          rid: 2327339886674969287
         m_EndedNodes:
-          rid: 2327339863176643066
-        m_VersionTimestamp: 638827316658460049
-    - rid: 2327339863176643063
+          rid: 2327339886674969288
+        m_VersionTimestamp: 638828200953977650
+    - rid: 2327339886674969285
+      type: {class: ParallelAllComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 0
+          m_Value1: 0
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: -2
+        m_Children:
+        - rid: 2327339886674969289
+        - rid: 2327339886674969290
+    - rid: 2327339886674969286
+      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        m_Blackboard:
+          rid: 2327339886674969291
+        m_Source: {fileID: 5919940505198577374}
+    - rid: 2327339886674969287
+      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic,
+        asm: mscorlib}
+      data: 
+    - rid: 2327339886674969288
+      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic,
+        asm: System.Core}
+      data: 
+    - rid: 2327339886674969289
       type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
           m_Value0: 12147466958793807105
           m_Value1: 6852135823899189074
         Graph:
-          rid: 2327339863176643062
+          rid: 2327339886674969284
         m_Parent:
-          rid: -2
+          rid: 2327339886674969285
         m_Child:
-          rid: 2327339863176643067
+          rid: 2327339886674969292
         Repeat: 1
         AllowMultipleRepeatsPerTick: 0
-    - rid: 2327339863176643064
-      type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        m_Blackboard:
-          rid: 2327339863176643068
-        m_Source: {fileID: 5919940505198577374}
-    - rid: 2327339863176643065
-      type: {class: 'Stack`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic,
-        asm: mscorlib}
-      data: 
-    - rid: 2327339863176643066
-      type: {class: 'HashSet`1[[Unity.Behavior.Node, Unity.Behavior]]', ns: System.Collections.Generic,
-        asm: System.Core}
-      data: 
-    - rid: 2327339863176643067
-      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 2327339886674969290
+      type: {class: Start, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 11125303395347216096
-          m_Value1: 1000413512427365904
+          m_Value0: 3682718705904724101
+          m_Value1: 7886807097309090360
         Graph:
-          rid: 2327339863176643062
+          rid: 2327339886674969284
         m_Parent:
-          rid: 2327339863176643063
-        m_Children:
-        - rid: 2327339863176643069
-        - rid: 2327339863176643070
-        - rid: 2327339863176643071
-    - rid: 2327339863176643068
+          rid: 2327339886674969285
+        m_Child:
+          rid: 2327339886674969293
+        Repeat: 1
+        AllowMultipleRepeatsPerTick: 0
+    - rid: 2327339886674969291
       type: {class: Blackboard, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         m_Variables:
-        - rid: 2327339863176643072
-        - rid: 2327339863176643073
-        - rid: 2327339863176643074
-    - rid: 2327339863176643069
-      type: {class: NavigateToTargetAction, ns: Unity.Behavior, asm: Unity.Behavior}
+        - rid: 2327339886674969294
+        - rid: 2327339886674969295
+        - rid: 2327339886674969296
+        - rid: 2327339886674969297
+        - rid: 2327339886674969298
+        - rid: 2327339886674969299
+        - rid: 2327339886674969300
+    - rid: 2327339886674969292
+      type: {class: AbortModifier, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 949922230348144796
-          m_Value1: 17392931603657237560
+          m_Value0: 2012036140348315656
+          m_Value1: 15722679284739198341
         Graph:
-          rid: 2327339863176643062
+          rid: 2327339886674969284
         m_Parent:
-          rid: 2327339863176643067
-        Agent:
-          rid: 2327339863176643072
-        Target:
-          rid: 2327339863176643073
-        Speed:
-          rid: 2327339863176642841
-        DistanceThreshold:
-          rid: 2327339863176642842
-        AnimatorSpeedParam:
-          rid: 2327339863176642843
-        SlowDownDistance:
-          rid: 2327339863176642844
-        m_TargetPositionMode:
-          rid: 2327339863176642845
-    - rid: 2327339863176643070
-      type: {class: SetAnimatorTriggerAction, ns: Unity.Behavior, asm: Unity.Behavior}
+          rid: 2327339886674969289
+        m_Child:
+          rid: 2327339886674969301
+        m_Conditions:
+        - rid: 2327339886674969302
+        m_RequiresAllConditions: 0
+    - rid: 2327339886674969293
+      type: {class: SelectorComposite, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         ID:
-          m_Value0: 4485216116005706853
-          m_Value1: 6509190925489206369
+          m_Value0: 503817024595151469
+          m_Value1: 9554897087434781179
         Graph:
-          rid: 2327339863176643062
+          rid: 2327339886674969284
         m_Parent:
-          rid: 2327339863176643067
-        Trigger:
-          rid: 2327339863176642924
-        Animator:
-          rid: 2327339863176643075
-        TriggerState:
-          rid: 2327339863176642926
-    - rid: 2327339863176643071
-      type: {class: WaitAction, ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        ID:
-          m_Value0: 18102898907277908884
-          m_Value1: 4016079911717333798
-        Graph:
-          rid: 2327339863176643062
-        m_Parent:
-          rid: 2327339863176643067
-        SecondsToWait:
-          rid: 2327339863176642969
-    - rid: 2327339863176643072
+          rid: 2327339886674969290
+        m_Children:
+        - rid: 2327339886674969303
+        - rid: 2327339886674969304
+    - rid: 2327339886674969294
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -859,7 +2213,7 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 0}
-    - rid: 2327339863176643073
+    - rid: 2327339886674969295
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -869,7 +2223,7 @@ MonoBehaviour:
         Name: Target
         m_Value: {fileID: 6331558144665418028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
           type: 3}
-    - rid: 2327339863176643074
+    - rid: 2327339886674969296
       type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -878,7 +2232,269 @@ MonoBehaviour:
           m_Value1: 613317687300309363
         Name: Self_Animator
         m_Value: {fileID: 0}
-    - rid: 2327339863176643075
+    - rid: 2327339886674969297
+      type: {class: 'BlackboardVariable`1[[Range, Assembly-CSharp]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8497846343597196932
+          m_Value1: 12351419584000034558
+        Name: New Range
+        m_Value: {fileID: 0}
+    - rid: 2327339886674969298
+      type: {class: 'BlackboardVariable`1[[Line_Of_Sight_Detector, Assembly-CSharp]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2473903619789498378
+          m_Value1: 9992333622255411180
+        Name: New Line Of Sight Detector
+        m_Value: {fileID: 0}
+    - rid: 2327339886674969299
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7976146784203210990
+          m_Value1: 10667708719072653562
+        Name: TargetDetected
+        m_Value: 0
+    - rid: 2327339886674969300
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2165155837820511678
+          m_Value1: 7102834811804067830
+        Name: Patrol Points
+        m_Value: []
+    - rid: 2327339886674969301
+      type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 7125316836474850922
+          m_Value1: 1525682673025227513
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969292
+        m_Children:
+        - rid: 2327339886674969305
+        - rid: 2327339886674969306
+        m_Conditions:
+        - rid: 2327339886674969307
+        m_RequiresAllConditions: 0
+        True:
+          rid: 2327339886674969305
+        False:
+          rid: 2327339886674969306
+    - rid: 2327339886674969302
+      type: {class: VariableValueChangedCondition, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        Graph:
+          rid: 2327339886674969284
+        Variable:
+          rid: 2327339886674969299
+    - rid: 2327339886674969303
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 3976135155221275849
+          m_Value1: 11136034522979497414
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969293
+        m_Children:
+        - rid: 2327339886674969308
+        - rid: 2327339886674969309
+    - rid: 2327339886674969304
+      type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 7914084658685460713
+          m_Value1: 8712332735317603052
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969293
+        Variable:
+          rid: 2327339886674969299
+        Value:
+          rid: 2327339886674969276
+    - rid: 2327339886674969305
+      type: {class: SequenceComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 2997451962671558978
+          m_Value1: 6204427745553999124
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969301
+        m_Children:
+        - rid: 2327339886674969310
+        - rid: 2327339886674969311
+        - rid: 2327339886674969312
+    - rid: 2327339886674969306
+      type: {class: PatrolAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 3432067869489296409
+          m_Value1: 8763166491538674310
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969301
+        Agent:
+          rid: 2327339886674969294
+        Waypoints:
+          rid: 2327339886674969300
+        Speed:
+          rid: 2327339886674969229
+        WaypointWaitTime:
+          rid: 2327339886674969230
+        DistanceThreshold:
+          rid: 2327339886674969231
+        AnimatorSpeedParam:
+          rid: 2327339886674969232
+        PreserveLatestPatrolPoint:
+          rid: 2327339886674969233
+    - rid: 2327339886674969307
+      type: {class: VariableComparisonCondition, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        Graph:
+          rid: 2327339886674969284
+        Variable:
+          rid: 2327339886674969299
+        Operator:
+          rid: 2327339886674969234
+        ComparisonValue:
+          rid: 2327339886674969235
+    - rid: 2327339886674969308
+      type: {class: RangeAction, ns: , asm: Assembly-CSharp}
+      data:
+        ID:
+          m_Value0: 3976135155221275849
+          m_Value1: 11136034522979497414
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969303
+        Range:
+          rid: 2327339886674969297
+        Target:
+          rid: 2327339886674969295
+    - rid: 2327339886674969309
+      type: {class: BranchingConditionComposite, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 4920458125412897855
+          m_Value1: 7941631585726702886
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969303
+        m_Children:
+        - rid: 2327339886674969313
+        - rid: 2327339886674969314
+        m_Conditions:
+        - rid: 2327339886674969315
+        m_RequiresAllConditions: 0
+        True:
+          rid: 2327339886674969313
+        False:
+          rid: 2327339886674969314
+    - rid: 2327339886674969310
+      type: {class: NavigateToTargetAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 949922230348144796
+          m_Value1: 17392931603657237560
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969305
+        Agent:
+          rid: 2327339886674969294
+        Target:
+          rid: 2327339886674969295
+        Speed:
+          rid: 2327339886674969239
+        DistanceThreshold:
+          rid: 2327339886674969240
+        AnimatorSpeedParam:
+          rid: 2327339886674969241
+        SlowDownDistance:
+          rid: 2327339886674969242
+        m_TargetPositionMode:
+          rid: 2327339886674969243
+    - rid: 2327339886674969311
+      type: {class: SetAnimatorTriggerAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 4485216116005706853
+          m_Value1: 6509190925489206369
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969305
+        Trigger:
+          rid: 2327339886674969244
+        Animator:
+          rid: 2327339886674969316
+        TriggerState:
+          rid: 2327339886674969246
+    - rid: 2327339886674969312
+      type: {class: WaitAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 18102898907277908884
+          m_Value1: 4016079911717333798
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969305
+        SecondsToWait:
+          rid: 2327339886674969247
+    - rid: 2327339886674969313
+      type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 4056084194188324716
+          m_Value1: 11213909833089676029
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969309
+        Variable:
+          rid: 2327339886674969299
+        Value:
+          rid: 2327339886674969248
+    - rid: 2327339886674969314
+      type: {class: SetVariableValueAction, ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        ID:
+          m_Value0: 3116324525848678634
+          m_Value1: 14078896035811142310
+        Graph:
+          rid: 2327339886674969284
+        m_Parent:
+          rid: 2327339886674969309
+        Variable:
+          rid: 2327339886674969299
+        Value:
+          rid: 2327339886674969249
+    - rid: 2327339886674969315
+      type: {class: LignOfSightCheckCondition, ns: , asm: Assembly-CSharp}
+      data:
+        Graph:
+          rid: 2327339886674969284
+        Target:
+          rid: 2327339886674969295
+        LineofSightDetector:
+          rid: 2327339886674969298
+    - rid: 2327339886674969316
       type: {class: 'GameObjectToComponentBlackboardVariable`1[[UnityEngine.Animator, UnityEngine.AnimationModule]]',
         ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -888,7 +2504,7 @@ MonoBehaviour:
         Name: 
         m_Value: {fileID: 0}
         m_LinkedVariable:
-          rid: 2327339863176643074
+          rid: 2327339886674969296
 --- !u!114 &1368184544290372473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,15 +2530,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c02bb70996b49eba31d0c206e28da24, type: 3}
   m_Name: AI_Graph Blackboard
   m_EditorClassIdentifier: 
-  VersionTimestamp: 638827316632856675
+  VersionTimestamp: 638828200920106765
   AssetID:
-    m_Value0: 0
-    m_Value1: 0
+    m_Value0: 1499709778507472656
+    m_Value1: 15809111777453357481
   m_Blackboard:
     m_Variables:
     - rid: 2327339863176642766
     - rid: 2327339863176642822
     - rid: 2327339863176643011
+    - rid: 2327339885492437113
+    - rid: 2327339885492437348
+    - rid: 2327339885492437373
+    - rid: 2327339886674968944
   m_SharedBlackboardVariableGuids: []
   references:
     version: 2
@@ -955,3 +2575,39 @@ MonoBehaviour:
           m_Value1: 613317687300309363
         Name: Self_Animator
         m_Value: {fileID: 0}
+    - rid: 2327339885492437113
+      type: {class: 'BlackboardVariable`1[[Range, Assembly-CSharp]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 8497846343597196932
+          m_Value1: 12351419584000034558
+        Name: New Range
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437348
+      type: {class: 'BlackboardVariable`1[[Line_Of_Sight_Detector, Assembly-CSharp]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2473903619789498378
+          m_Value1: 9992333622255411180
+        Name: New Line Of Sight Detector
+        m_Value: {fileID: 0}
+    - rid: 2327339885492437373
+      type: {class: 'BlackboardVariable`1[[System.Boolean, mscorlib]]', ns: Unity.Behavior,
+        asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 7976146784203210990
+          m_Value1: 10667708719072653562
+        Name: TargetDetected
+        m_Value: 0
+    - rid: 2327339886674968944
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2165155837820511678
+          m_Value1: 7102834811804067830
+        Name: Patrol Points
+        m_Value: []

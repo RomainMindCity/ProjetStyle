@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class RunningPlayerState : PlayerState
 {
+    public override void StateEnter(PlayerState previousState) { }
+
     public override void StateUpdate()
     {
-        if (_inputsManager.Move == Vector2.zero)
+        Vector2 input = _inputs.Move;
+        if (input == Vector2.zero)
         {
             StateMachine.ChangeState(StateMachine.IdleState);
             return;
         }
 
-        Vector2 input = _inputsManager.Move.normalized;
-        Vector3 move = new Vector3(input.x, 0, input.y); // Z pour déplacement avant/arrière
+        Vector3 direction = new(input.x, 0, input.y);
 
-        StateMachine.Velocity = move * _params.maxSpeed;
-    }
-
-    public override void StateExit(PlayerState nextState)
-    {
-        StateMachine.Velocity = Vector3.zero;
+        if (_inputs != null && StateMachine != null && StateMachine.movementParameters != null)
+        {
+            StateMachine.Velocity = direction.normalized * StateMachine.movementParameters.maxSpeed;
+        }
     }
 }

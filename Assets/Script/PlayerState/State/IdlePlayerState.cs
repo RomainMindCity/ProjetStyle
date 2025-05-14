@@ -9,7 +9,8 @@ public class IdlePlayerState : PlayerState
 
     public override void StateUpdate()
     {
-        if (_inputsManager.Move != Vector2.zero)
+        Vector2 input = _inputs.Move;
+        if (input != Vector2.zero)
         {
             StateMachine.ChangeState(StateMachine.RunningState);
         }

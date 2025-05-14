@@ -1,21 +1,20 @@
-using UnityEngine;
-
 public abstract class PlayerState
 {
     protected PlayerStateMachine StateMachine;
-    protected InputsManager _inputsManager;
-    protected PlayerMovementParameters _params;
+    protected InputsManager _inputs;
 
-    public void Init(PlayerStateMachine stateMachine)
+    public virtual void Init(PlayerStateMachine stateMachine)
     {
         StateMachine = stateMachine;
-        _inputsManager = stateMachine.InputsManager;
-        _params = stateMachine.PlayerMovementParameters;
-        OnStateInit();
+        _inputs = stateMachine.InputsManager;
+
+        if (_inputs == null)
+        {
+            UnityEngine.Debug.LogError("⚠ _inputs is null in PlayerState.Init()!");
+        }
     }
 
-    protected virtual void OnStateInit() { }
     public virtual void StateEnter(PlayerState previousState) { }
     public virtual void StateExit(PlayerState nextState) { }
-    public virtual void StateUpdate() { }
+    public abstract void StateUpdate();
 }

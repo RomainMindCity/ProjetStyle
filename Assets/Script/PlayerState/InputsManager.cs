@@ -1,90 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[DefaultExecutionOrder(-100)] // Important : Exécuté avant les autres scripts
 public class InputsManager : MonoBehaviour
 {
-    // permet de r�cup les inputs bools/float ou vector2 partout dans le code
-    #region InputVariables
-    private bool _inputInteract;
-    private Vector2 _move;
-    private Vector2 _lookaround;
-    #endregion
-    #region InputPropri�t�s 
-    public bool InputInteract { get => _inputInteract; set => _inputInteract=value; }
-    public Vector2 Move { get => _move; }
-    public Vector2 Lookaround { get => _lookaround;}
-    #endregion
+    public static InputsManager instance { get; private set; }
 
-    #region InputMethodes
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            _inputInteract = true;
-        }
-        
-        if (context.canceled)
-        {
-            _inputInteract = false;
-        }
-    }
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        _move = context.ReadValue<Vector2>();
-    }
+    [Header("Input Settings")]
+    [SerializeField] private InputActionAsset inputActions;
 
-    #endregion
-    public static InputsManager instance = null;
+    private PlayerInput playerInput;
+    private Vector2 _moveInput;
+    private bool _interactPressed;
+
+    public Vector2 Move => _moveInput;
+    public bool InputInteract => _interactPressed;
 
     private void Awake()
     {
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
-        else
-        {
-            instance = this;
-        }
-        DontDestroyOnLoad(this.gameObject);
-        SetupInputs();
 
-        // Initialisation du Game Manager...
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        SetupInputSystem();
     }
 
-    private void InvokeInputMethod(string methodName, InputAction.CallbackContext context)
+    private void SetupInputSystem()
     {
-        var method = GetType().GetMethod(methodName, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
-        if (method != null)
+        if (inputActions == null)
         {
-            method.Invoke(this, new object[] { context });
+            Debug.LogError("❌ InputActionAsset not assigned in InputsManager!");
+            return;
         }
-        else
+
+        playerInput = gameObject.AddComponent<PlayerInput>();
+        playerInput.actions = inputActions;
+        playerInput.notificationBehavior = PlayerNotifications.InvokeUnityEvents;
+        playerInput.camera = Camera.main;
+
+        playerInput.actions["Movement"].performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
+        playerInput.actions["Movement"].canceled += ctx => _moveInput = Vector2.zero;
+
+        foreach (var action in playerInput.actions)
         {
-            Debug.LogWarning($"Méthode {methodName} introuvable dans InputsManager.");
-        }
-    }
-
-    #region Init/InputAction
-    public PlayerInput _playerInputs;
-    [SerializeField] private InputActionAsset _inputActionAsset;
-
-    private void SetupInputs()
-    {
-        _playerInputs = gameObject.AddComponent<PlayerInput>();
-        _playerInputs.camera = FindFirstObjectByType<Camera>();
-        _playerInputs.notificationBehavior = PlayerNotifications.InvokeUnityEvents;
-        _playerInputs.actions = _inputActionAsset;
-
-        foreach (var action in _playerInputs.actions)
-        {
-            action.performed += ctx => InvokeInputMethod($"On{action.name}", ctx);
-            action.canceled += ctx => InvokeInputMethod($"On{action.name}", ctx);
             action.Enable();
         }
     }
-    #endregion
 }

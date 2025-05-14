@@ -1,52 +1,68 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerStateMachine : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public PlayerMovementParameters BasePlayerMovementParameters;
+    [Header("Movement Parameters")]
+    public PlayerMovementParameters movementParameters;
+    public Animator playerAnimator;
 
     [HideInInspector] public Vector3 Velocity;
     [HideInInspector] public InputsManager InputsManager { get; private set; }
-    [HideInInspector] public PlayerMovementParameters PlayerMovementParameters;
 
-    private CharacterController _characterController;
+    private CharacterController _controller;
 
     // States
-    private readonly IdlePlayerState _idleState = new();
-    private readonly RunningPlayerState _runningState = new();
+    private IdlePlayerState _idleState = new();
+    private RunningPlayerState _runningState = new();
     public PlayerState CurrentState { get; private set; }
 
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
+        _controller = GetComponent<CharacterController>();
         InputsManager = InputsManager.instance;
-        PlayerMovementParameters = BasePlayerMovementParameters;
+
+        if (InputsManager == null)
+        {
+            Debug.LogError("InputsManager.instance is null! Make sure it's in the scene.");
+        }
 
         _idleState.Init(this);
         _runningState.Init(this);
+
         ChangeState(_idleState);
     }
 
     private void Update()
     {
-        CurrentState.StateUpdate();
+        _controller.Move(Velocity * Time.deltaTime);
     }
 
     private void FixedUpdate()
     {
-        _characterController.Move(Velocity * Time.fixedDeltaTime);
+        CurrentState?.StateUpdate();
     }
 
     public void ChangeState(PlayerState newState)
     {
+        var previous = CurrentState;
         CurrentState?.StateExit(newState);
-        var previousState = CurrentState;
         CurrentState = newState;
-        CurrentState?.StateEnter(previousState);
+        CurrentState?.StateEnter(previous);
+
+        if (playerAnimator != null)
+        {
+            if (CurrentState is RunningPlayerState)
+            {
+                playerAnimator.SetFloat("WalkSpeed", 1f);
+            }
+            else
+            {
+                playerAnimator.SetFloat("WalkSpeed", 0f);
+            }
+        }
     }
 
-    // Accessors for external use
     public IdlePlayerState IdleState => _idleState;
     public RunningPlayerState RunningState => _runningState;
 }

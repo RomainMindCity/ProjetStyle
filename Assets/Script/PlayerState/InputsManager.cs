@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[DefaultExecutionOrder(-100)] // Important : Exécuté avant les autres scripts
+[DefaultExecutionOrder(-100)]
 public class InputsManager : MonoBehaviour
 {
     public static InputsManager instance { get; private set; }
@@ -47,6 +47,14 @@ public class InputsManager : MonoBehaviour
         playerInput.actions["Movement"].performed += ctx => OnMove(ctx.ReadValue<Vector2>());
         playerInput.actions["Movement"].canceled += ctx => _moveInput = Vector2.zero;
 
+        playerInput.actions["Attack"].performed += ctx =>
+        {
+            if (ctx.action.triggered)
+            {
+                player.GetComponent<PlayerStateMachine>().ChangeState(player.GetComponent<PlayerStateMachine>().AttackState);
+            }
+        };
+
         foreach (var action in playerInput.actions)
         {
             action.Enable();
@@ -61,6 +69,20 @@ public class InputsManager : MonoBehaviour
         {
             float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
             player.transform.localRotation = Quaternion.Euler(0, angle, 0);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (playerInput != null)
+        {
+            playerInput.actions["Movement"].performed -= ctx => OnMove(ctx.ReadValue<Vector2>());
+            playerInput.actions["Movement"].canceled -= ctx => _moveInput = Vector2.zero;
+
+            foreach (var action in playerInput.actions)
+            {
+                action.Disable();
+            }
         }
     }
 }

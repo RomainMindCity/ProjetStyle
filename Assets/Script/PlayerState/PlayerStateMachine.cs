@@ -6,20 +6,24 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Movement Parameters")]
     public PlayerMovementParameters movementParameters;
     public Animator playerAnimator;
+    public AnimationClip attackAnimation;
 
     [HideInInspector] public Vector3 Velocity;
     [HideInInspector] public InputsManager InputsManager { get; private set; }
 
     private CharacterController _controller;
+    internal Weapon weapon;
 
     // States
     private IdlePlayerState _idleState = new();
     private RunningPlayerState _runningState = new();
+    private AttackPlayerState _attackState = new();
     public PlayerState CurrentState { get; private set; }
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
+        weapon = GetComponentInChildren<Weapon>();
         InputsManager = InputsManager.instance;
 
         if (InputsManager == null)
@@ -29,6 +33,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         _idleState.Init(this);
         _runningState.Init(this);
+        _attackState.Init(this);
 
         ChangeState(_idleState);
     }
@@ -63,6 +68,18 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
+    public void PlayAnimation()
+    {
+        switch (CurrentState)
+        {
+            case AttackPlayerState:
+                //playerAnimator.SetTrigger("Attack");
+                playerAnimator.Play(attackAnimation.name);
+                break;
+        }
+    }
+
     public IdlePlayerState IdleState => _idleState;
     public RunningPlayerState RunningState => _runningState;
+    public AttackPlayerState AttackState => _attackState;
 }

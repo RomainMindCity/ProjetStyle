@@ -7,11 +7,16 @@ using UnityEngine;
 public partial class LignOfSightCheckCondition : Condition
 {
     [SerializeReference] public BlackboardVariable<GameObject> Target;
+    private Transform TargetTransform;
     [SerializeReference] public BlackboardVariable<Line_Of_Sight_Detector> LineofSightDetector;
+    [SerializeField] private GameObject _target;
 
     public override bool IsTrue()
     {
-        return LineofSightDetector.Value.Detection(Target.Value) != null;
+        TargetTransform = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+        _target = TargetTransform.gameObject.transform.parent.gameObject;
+        Debug.Log("Target: " + _target);
+        return LineofSightDetector.Value.Detection();
     }
 
 

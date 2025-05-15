@@ -17,40 +17,39 @@ public class Line_Of_Sight_Detector : MonoBehaviour
     [SerialiseField]
     private bool _showDebugVisuals = true;
 
-    public GameObject Detection(GameObject potentialTarget)
+    private Transform _hitBoxTransform;
+
+    public GameObject Detection()
     {
-        potentialTarget = potentialTarget.transform.root.gameObject;
-        Debug.Log("Potential Target: " + potentialTarget.name);
-        Vector3 origin = transform.position + Vector3.up * _detectionHeight;
-        Vector3 direction = (potentialTarget.transform.position + Vector3.up * _detectionHeight) - origin;
-        float distance = direction.magnitude;
-        direction.Normalize();
+        RaycastHit hit;
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, Mathf.Min(distance, _detectionRange), _playerLayerMask))
+        // Get the target object
+        GameObject potentialTarget = GameObject.FindGameObjectsWithTag("Player")[0].transform.parent.gameObject;
+        Debug.Log("potentialTarget: " + potentialTarget);
+        _hitBoxTransform = potentialTarget.transform.Find("Physics/HitBox");
+        potentialTarget = _hitBoxTransform.gameObject;
+        Debug.Log("potentialTarget: " + potentialTarget);
+
+        // Check if the target is within range
+        Vector3 direction = potentialTarget.transform.position - transform.position;
+
+        Debug.DrawRay(transform.position,direction, Color.green, 1f);
+        Physics.Raycast(transform.position , direction, out hit, 1000000);
+        Debug.Log("hit :" + hit.collider.gameObject);
+
+        // Check if the raycast hit the target
+        if (hit.collider != null && hit.collider.gameObject == potentialTarget)
         {
-            Debug.Log("yeah");
-            if (hit.collider != null)
+            if (_showDebugVisuals && this.enabled)
             {
-            Debug.Log("Hit: " + hit.collider.gameObject.tag);
-            Debug.Log("Hit: " + hit.collider.gameObject.name);
-            Debug.Log("Hit: " + hit.collider.gameObject.layer);
-
-            if (hit.collider.CompareTag("Player"))
-            {
-                Debug.Log("Hit Player: " + hit.collider.gameObject.name);
-                if (_showDebugVisuals && enabled)
-                {
-                Debug.DrawLine(origin, hit.collider.transform.position, Colour.red);
-                }
-                return hit.collider.gameObject;
+                Debug.DrawLine(transform.position + Vector3.up * _detectionHeight, potentialTarget.transform.position, Colour.green);
             }
-            }
+            return potentialTarget;
         }
         else
         {
             return null;
         }
-        return null;
     }
 
     private void OnDrawGizmos()

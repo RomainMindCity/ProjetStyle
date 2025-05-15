@@ -10,7 +10,6 @@ public partial class RangeAction : Action
 {
     [SerializeReference] public BlackboardVariable<Range> Range;
     [SerializeReference] public BlackboardVariable<GameObject> Target;
-
     protected override Status OnUpdate()
     {
         Target.Value = Range.Value.UpdateDetector();

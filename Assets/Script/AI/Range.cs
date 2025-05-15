@@ -22,6 +22,7 @@ public class Range : MonoBehaviour
 
     public GameObject UpdateDetector()
     {
+
        Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionRange, _detectionLayerMask);
 
         if(colliders.Length > 0)

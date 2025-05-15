@@ -64,6 +64,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1137522428351906842}
+  - component: {fileID: 4419555977458669881}
+  - component: {fileID: 3850064874184631083}
+  - component: {fileID: 2450747105023503475}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -86,6 +89,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2221839628788110084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4419555977458669881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105718103604369012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: 111823710607634547, guid: 101f1e06190ad014a9398dbd663f65db, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 2327339863176642867
+  - rid: 2327339863176643027
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 2327339863176642867
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 6331558144665418028}
+    - rid: 2327339863176643027
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]',
+        ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 6185229662083682368
+          m_Value1: 613317687300309363
+        Name: Self_Animator
+        m_Value: {fileID: 0}
+--- !u!114 &3850064874184631083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105718103604369012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee05b3d26159c94e98a026aacb02801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRange: 5
+  _detectionLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _showDebugVisuals: 1
+--- !u!114 &2450747105023503475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105718103604369012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b8058c7a0f974db21743b0438bec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _detectionRange: 5
+  _detectionHeight: 3
+  _showDebugVisuals: 1
 --- !u!1 &1558698249687060746
 GameObject:
   m_ObjectHideFlags: 0

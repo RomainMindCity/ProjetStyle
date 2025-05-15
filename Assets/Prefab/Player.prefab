@@ -297,7 +297,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2221839628788110084}
   - component: {fileID: 2755339349131118951}
-  - component: {fileID: 9115170152858762924}
+  - component: {fileID: 2783434868829885605}
+  - component: {fileID: 4078376232815694287}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -347,33 +348,55 @@ NavMeshAgent:
   m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &9115170152858762924
-Rigidbody:
+--- !u!143 &2783434868829885605
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6331558144665418028}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4078376232815694287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6331558144665418028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f8895fe543a14459ff99f7cdba726d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugMode: 1
+  BasePlayerMovementParameters: {fileID: 11400000, guid: f488742151ef7eb42be421be9d1fe72c,
+    type: 2}
+  Velocity: {x: 0, y: 0}
+  IsMovementLocked: 0
+  PlayerMovementParameters: {fileID: 0}
+  IsJumpInputEaten: 0
+  JumpBuffer: 0
+  Animator: {fileID: 0}
+  MeshRenderer: {fileID: 0}
+  IsCarrying: 0
+  walkingTime: 0.25
 --- !u!1001 &4809541577718529553
 PrefabInstance:
   m_ObjectHideFlags: 0

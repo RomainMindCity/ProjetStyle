@@ -57,32 +57,10 @@ public class InputsManager : MonoBehaviour
     {
         _moveInput = moveInput;
 
-        if (Mathf.Abs(moveInput.x) > 0.1f)
+        if (moveInput.sqrMagnitude > 0.01f)
         {
-            RotatePlayer90();
-        }
-
-        if (Mathf.Abs(moveInput.y) > 0.1f)
-        {
-            FlipPlayer();
-        }
-    }
-
-    private void RotatePlayer90()
-    {
-        if (player != null)
-        {
-            player.transform.Rotate(0, 90, 0);
-        }
-    }
-
-    private void FlipPlayer()
-    {
-        if (player != null)
-        {
-            Vector3 scale = player.transform.localScale;
-            scale.x *= -1;
-            player.transform.localScale = scale;
+            float angle = Mathf.Atan2(moveInput.x, moveInput.y) * Mathf.Rad2Deg;
+            player.transform.localRotation = Quaternion.Euler(0, angle, 0);
         }
     }
 }

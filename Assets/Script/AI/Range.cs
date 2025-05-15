@@ -23,8 +23,8 @@ public class Range : MonoBehaviour
     public GameObject UpdateDetector()
     {
 
-       Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionRange, _detectionLayerMask);
-
+        Collider[] colliders = Physics.OverlapSphere(transform.position, _detectionRange, _detectionLayerMask);
+        
         if(colliders.Length > 0)
         {
             DetectedTarget = colliders[0].gameObject;
@@ -36,12 +36,12 @@ public class Range : MonoBehaviour
         return DetectedTarget;
     }
 
-    private void OawGismos()
+    private void DrawGismos()
     {
         if (!_showDebugVisuals || this.enabled == false) return;
 
         Gismos.color = DetectedTarget ? Colour.green : Colour.yellow;
-        Gismos.DrawWireSphere(transform.position, _detectionRange);
+        Gizmos.DrawWireSphere(transform.position, _detectionRange);
     }
 
 }

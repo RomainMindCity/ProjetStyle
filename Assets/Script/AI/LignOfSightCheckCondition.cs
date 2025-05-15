@@ -13,10 +13,8 @@ public partial class LignOfSightCheckCondition : Condition
 
     public override bool IsTrue()
     {
-        TargetTransform = GameObject.FindGameObjectsWithTag("Player")[0].transform;
-        _target = TargetTransform.gameObject.transform.parent.gameObject;
-        Debug.Log("Target: " + _target);
-        return LineofSightDetector.Value.Detection();
+        
+        return LineofSightDetector.Value.Detection(Target.Value)==Target;
     }
 
 

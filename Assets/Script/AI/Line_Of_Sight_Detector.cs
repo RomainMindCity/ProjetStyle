@@ -33,7 +33,7 @@ public class Line_Of_Sight_Detector : MonoBehaviour
         // Check if the target is within range
         Vector3 direction = potentialTarget.transform.position - transform.position;
 
-        Debug.DrawRay(transform.position,direction, Color.green, 1f);
+        Debug.DrawRay(transform.position,direction, Colour.green, 1f);
         Physics.Raycast(transform.position , direction, out hit, _detectionRange, _playerLayerMask);
 
         // Check if the raycast hit the target

@@ -568,6 +568,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
+      propertyPath: 'managedReferences[2327339909471010995]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[Range, Assembly-CSharp]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: 'managedReferences[2327339909471010996]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[Line_Of_Sight_Detector,
+        Assembly-CSharp]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
       propertyPath: managedReferences[2327339885492437149].Name
       value: New Range
       objectReference: {fileID: 0}
@@ -575,6 +586,16 @@ PrefabInstance:
         type: 3}
       propertyPath: managedReferences[2327339885492437150].Name
       value: New Range
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010995].Name
+      value: New Range
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010996].Name
+      value: New Line Of Sight Detector
       objectReference: {fileID: 0}
     - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
@@ -591,6 +612,16 @@ PrefabInstance:
       propertyPath: managedReferences[2327339885492437150].m_Value
       value: 
       objectReference: {fileID: 8775076165619770708}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010995].m_Value
+      value: 
+      objectReference: {fileID: 8775076165619770708}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010996].m_Value
+      value: 
+      objectReference: {fileID: 7974666975790410252}
     - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
       propertyPath: managedReferences[2327339885492437149].GUID.m_Value0
@@ -610,6 +641,26 @@ PrefabInstance:
         type: 3}
       propertyPath: managedReferences[2327339885492437150].GUID.m_Value1
       value: 12351419584000034558
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010995].GUID.m_Value0
+      value: 8497846343597196932
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010995].GUID.m_Value1
+      value: 12351419584000034558
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010996].GUID.m_Value0
+      value: 2473903619789498378
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419555977458669881, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+        type: 3}
+      propertyPath: managedReferences[2327339909471010996].GUID.m_Value1
+      value: 9992333622255411180
       objectReference: {fileID: 0}
     - target: {fileID: 4970638748679642028, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
         type: 3}
@@ -747,6 +798,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5524079308583765631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7974666975790410252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2450747105023503475, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5524079308583765631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17b8058c7a0f974db21743b0438bec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8775076165619770708 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3850064874184631083, guid: 8b89fdb0c71dd438b9b7b0ef242463bc,

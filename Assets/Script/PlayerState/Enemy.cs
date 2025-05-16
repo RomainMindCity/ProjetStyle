@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.Behavior;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IAttackable, IHealth
@@ -43,5 +45,18 @@ public class Enemy : MonoBehaviour, IAttackable, IHealth
         {
             animator.Play("Death_B");
         }
+
+        BehaviorGraphAgent behaviorGraphAgent = GetComponentInChildren<BehaviorGraphAgent>();
+        if (behaviorGraphAgent != null)
+        {
+            behaviorGraphAgent.enabled = false;
+        }
+        StartCoroutine(WaitAndDestroy(10f));
+    }
+
+    IEnumerator WaitAndDestroy(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Destroy(gameObject);
     }
 }

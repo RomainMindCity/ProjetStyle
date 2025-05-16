@@ -73,7 +73,6 @@ public class PlayerStateMachine : MonoBehaviour
         switch (CurrentState)
         {
             case AttackPlayerState:
-                //playerAnimator.SetTrigger("Attack");
                 playerAnimator.Play(attackAnimation.name);
                 break;
         }

@@ -29,6 +29,7 @@ public class AttackPlayerState : PlayerState
         {
             _animator.SetBool("IsAttacking", true);
             _animator.SetTrigger("Attack");
+            Debug.Log($"{StateMachine.weapon.name} is attacking.");
         }
         else if (StateMachine.weapon == null)
         {
@@ -58,19 +59,6 @@ public class AttackPlayerState : PlayerState
             {
                 StateMachine.ChangeState(StateMachine.IdleState);
             }
-        }
-    }
-
-    private void PerformAttack()
-    {
-        StateMachine.PlayAnimation();
-        if (StateMachine.weapon != null && _animator != null)
-        {
-            _animator.SetBool("IsAttacking", true);
-        }
-        else
-        {
-            Debug.LogError("Weapon component not found in children.");
         }
     }
 }

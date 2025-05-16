@@ -22,6 +22,7 @@ public class Weapon : MonoBehaviour
         if (owner != null && (other.gameObject == owner || other.transform.IsChildOf(owner.transform)))
             return;
 
+
         ITriggerable triggerable = other.GetComponent<ITriggerable>();
         if (triggerable != null)
         {
@@ -30,6 +31,7 @@ public class Weapon : MonoBehaviour
 
         if (IsAttacking)
         {
+            Debug.Log($"{gameObject.name} is attacking {other.gameObject.name}");
             HandleAttack(other);
         }
     }

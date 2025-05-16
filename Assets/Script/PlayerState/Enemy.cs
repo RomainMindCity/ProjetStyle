@@ -10,11 +10,20 @@ public class Enemy : MonoBehaviour, IAttackable, IHealth
     public int CurrentHealth => currentHealth;
     public int MaxHealth => maxHealth;
     public Animator animator;
+    [SerializeField] private Weapon weapon;
+    [SerializeField] private HealthBar healthBar;
 
     private void Awake()
     {
         currentHealth = maxHealth;
         animator = GetComponentInChildren<Animator>();
+    }
+
+    void Start()
+    {
+        healthBar?.Initialize(maxHealth);
+        weapon = GetComponentInChildren<Weapon>();
+        weapon.owner = this.gameObject;
     }
 
     public void TakeHit(GameObject attacker, int damage)
@@ -27,6 +36,8 @@ public class Enemy : MonoBehaviour, IAttackable, IHealth
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0);
 
+        healthBar?.UpdateHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             Die();
@@ -37,13 +48,15 @@ public class Enemy : MonoBehaviour, IAttackable, IHealth
     {
         currentHealth += amount;
         currentHealth = Mathf.Min(currentHealth, maxHealth);
+
+        healthBar?.UpdateHealth(currentHealth);
     }
 
     private void Die()
     {
         if (animator != null)
         {
-            animator.Play("Death_B");
+            animator.SetBool("Die", true);
         }
 
         BehaviorGraphAgent behaviorGraphAgent = GetComponentInChildren<BehaviorGraphAgent>();

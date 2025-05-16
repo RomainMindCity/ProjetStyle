@@ -35,7 +35,6 @@ public class Line_Of_Sight_Detector : MonoBehaviour
 
         Debug.DrawRay(transform.position,direction, Color.green, 1f);
         Physics.Raycast(transform.position , direction, out hit, _detectionRange, _playerLayerMask);
-        Debug.Log("hit :" + hit.collider.gameObject);
 
         // Check if the raycast hit the target
         // if (hit.collider != null && hit.collider.gameObject == potentialTarget)

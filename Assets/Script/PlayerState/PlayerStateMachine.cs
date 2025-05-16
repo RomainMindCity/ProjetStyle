@@ -4,9 +4,16 @@ using UnityEngine;
 public class PlayerStateMachine : MonoBehaviour
 {
     [Header("Movement Parameters")]
-    public PlayerMovementParameters movementParameters;
-    public Animator playerAnimator;
-    public AnimationClip attackAnimation;
+    [SerializeField] private PlayerMovementParameters movementParameters;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private AnimationClip attackAnimation;
+
+    public DeadPlayerState DeadState { get; } = new DeadPlayerState();
+    public PlayerMovementParameters MovementParameters => movementParameters;
+    public Animator PlayerAnimator => playerAnimator;
+    public AnimationClip AttackAnimation => attackAnimation;
+    public PlayerController PlayerController => playerController;
 
     [HideInInspector] public Vector3 Velocity;
     [HideInInspector] public InputsManager InputsManager { get; private set; }

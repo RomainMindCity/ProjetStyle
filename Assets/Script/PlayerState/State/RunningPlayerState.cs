@@ -6,7 +6,11 @@ public class RunningPlayerState : PlayerState
 
     public override void StateUpdate()
     {
-        if (StateMachine.PlayerController.IsDead) return;
+        if (StateMachine.PlayerController.IsDead)
+        {
+            StateMachine.ChangeState(StateMachine.DeadState);
+            return;
+        }
         Vector2 input = _inputs.Move;
         if (input == Vector2.zero)
         {

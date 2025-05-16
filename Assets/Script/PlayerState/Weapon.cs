@@ -31,7 +31,6 @@ public class Weapon : MonoBehaviour
 
         if (IsAttacking)
         {
-            Debug.Log($"{gameObject.name} is attacking {other.gameObject.name}");
             HandleAttack(other);
         }
     }

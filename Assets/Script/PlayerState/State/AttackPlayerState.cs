@@ -29,7 +29,6 @@ public class AttackPlayerState : PlayerState
         {
             _animator.SetBool("IsAttacking", true);
             _animator.SetTrigger("Attack");
-            Debug.Log($"{StateMachine.weapon.name} is attacking.");
         }
         else if (StateMachine.weapon == null)
         {
